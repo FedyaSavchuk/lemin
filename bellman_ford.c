@@ -74,7 +74,7 @@ void	bellman_ford(t_nodes *nodes) {
 
 	i = 0;
 	v_count = get_len(nodes);				// количество вершин в графе
-	while (i < v_count - 1)					// проходим по всем першинам v_count - 1 раз
+	while (i < v_count - 1)					// проходим по всем вершинам v_count - 1 раз
 	{
 		nodes = nodes->start;				// переводим указатель на старт
 		search_min_wights(nodes);
