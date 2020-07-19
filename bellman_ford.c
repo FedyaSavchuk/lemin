@@ -50,10 +50,22 @@ void search_min_wights(t_nodes *node)
 			node = node->next;
 			continue;
 		}
-
+		// TODO поведение при пересечении
+		if (node->tmp)
+		{
+			if (node->in && node->tmp->weight > node->weight - 1)
+			{
+				node->tmp->weight = node->weight - 1;
+				node->tmp->prev = node;
+			}
+		}
 
 		while (relations)
 		{
+			if (!relations->active) {
+				relations = relations->next;
+				continue;
+			}
 			// если это более дешевый путь до этой вершины - сохраняем новую цену и предыдущий узел
 			if (relations->to->weight > node->weight + relations->relation_weight)
 			{
